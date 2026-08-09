@@ -53,7 +53,7 @@ export default function Hero() {
   href="https://t.me/GRMdigital"
   target="_blank"
   rel="noopener noreferrer"
-  className="rounded-xl bg-green-500 px-8 py-4 font-semibold text-black transition hover:scale-105"
+  className="inline-flex whitespace-nowrap rounded-xl bg-green-500 px-8 py-4 font-semibold text-black transition hover:scale-105"
 >
   Обсудить проект
 </a>
