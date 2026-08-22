@@ -26,10 +26,10 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className="mt-8 max-w-5xl text-6xl font-extrabold leading-tight md:text-8xl"
       >
-        Создаем сайты,
+        Создаем сайты
         
 
-        которые продают.
+        которые продают
       </motion.h1>
 
       <motion.p
