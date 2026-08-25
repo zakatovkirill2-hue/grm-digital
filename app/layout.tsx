@@ -40,6 +40,12 @@ export const metadata: Metadata = {
 
   creator: "GRM Digital",
 
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+
   openGraph: {
     title: "GRM Digital — Создаем сайты, которые продают",
     description:
