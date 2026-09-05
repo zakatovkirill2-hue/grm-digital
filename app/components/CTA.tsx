@@ -1,4 +1,34 @@
-export default function CTA() {
+
+"use client";
+
+import { useEffect, useState } from "react";export default function CTA() { const [calculationText, setCalculationText] = useState("");
+
+useEffect(() => {
+  const saved = sessionStorage.getItem("grm-calculation");
+
+  if (!saved) return;
+
+  try {
+    const calculation = JSON.parse(saved);
+
+    const extrasText =
+      calculation.extras?.length > 0
+        ? calculation.extras.join(", ")
+        : "Без дополнительных функций";
+
+    const text = [
+      "Расчёт проекта:",
+      `Проект: ${calculation.project}`,
+      `Страницы: ${calculation.pages}`,
+      `Дополнительно: ${extrasText}`,
+      `Ориентировочная стоимость: ${calculation.price}`,
+    ].join("\n");
+
+    setCalculationText(text);
+  } catch {
+    sessionStorage.removeItem("grm-calculation");
+  }
+}, []); 
   return (
     <section
       id="contact" 
@@ -14,6 +44,17 @@ export default function CTA() {
           Расскажите о своей задаче, а мы предложим решение,
           которое поможет привлекать больше клиентов.
         </p>
+        {calculationText && (
+  <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-green-500/20 bg-green-500/5 p-6 text-left">
+    <p className="mb-3 text-sm font-medium text-green-400">
+      Ваш предварительный расчёт
+    </p>
+
+    <p className="whitespace-pre-line text-sm leading-7 text-gray-300">
+      {calculationText}
+    </p>
+  </div>
+)}
 
         <div className="mt-12 flex flex-wrap justify-center gap-5">
           <button className="rounded-xl bg-green-500 px-8 py-4 font-semibold text-black transition hover:scale-105">
